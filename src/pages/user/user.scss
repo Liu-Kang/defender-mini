@@ -1,0 +1,51 @@
+@import '@styles/var.scss';
+@import '@styles/mixin.scss';
+
+.container {
+  position: relative;
+  overflow: hidden;
+  .body {
+    position: relative;
+    width: 670px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px #eee;
+    z-index: 9;
+    padding: 20px 24px;
+    margin: 30px auto;
+    .user-info {
+      display: flex;
+      height: 130px;
+      width: 100%;
+      .avatar {
+        float: left;
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        overflow: hidden;
+        Image {
+          @include full;
+        }
+      }
+      .info {
+        flex: 1;
+        @include flex-col;
+        justify-content: space-around;
+        margin-left: 30px;
+      }
+      .login {
+        @include flex-col;
+        justify-content: center;
+        margin-left: 30px;
+      }
+      .user-name {
+        font-size: 32px;
+        font-weight: bold;
+      }
+    }
+    .user-line {
+      margin-top: 40px;
+      border-top: 1PX solid #d6e4ef;
+    }
+  }
+}

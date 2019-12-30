@@ -1,5 +1,4 @@
 import Taro from '@tarojs/taro'
-import { CACHE_LOGIN_CODE } from '@enums/storage'
 import { doLogin } from '@utils'
 
 const defaultOptions = {
@@ -23,9 +22,6 @@ export default function http(params) {
       url: `${domain}${url}`,
       method,
       data,
-      header: {
-        skey: Taro.getStorageSync(CACHE_LOGIN_CODE) || ''
-      },
       success: (res) => {
         if (res.data.code === 1000 && res.data.bcode == 100) {
           return resolve(res.data)

@@ -1,10 +1,9 @@
 import Taro, { Component } from '@tarojs/taro'
 import { Provider } from '@tarojs/redux'
 import configStore from './store'
-import Index from './pages/index'
+import Home from './pages/home'
 
-import 'taro-ui/dist/style/index.scss'
-import './app.less'
+import './app.scss'
 
 const store = configStore()
 
@@ -18,15 +17,39 @@ class App extends Component {
 
   config = {
     pages: [
+      'pages/user/user',
       'pages/home/home',
-      'pages/detail/detail',
-      'pages/index/index'
+      'pages/vote/vote',
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'WeChat',
+      navigationBarTitleText: 'Defender',
       navigationBarTextStyle: 'black'
+    },
+    tabBar: {
+      color: '#C3C2C1',
+      selectedColor: '#FF8C00',
+      borderStyle: 'white',
+      list: [{
+        iconPath: './assets/images/rank.png',
+        selectedIconPath: './assets/images/rank_on.png',
+        pagePath: 'pages/home/home',
+        text: '劣迹榜'
+      }, {
+        iconPath: './assets/images/vote.png',
+        selectedIconPath: './assets/images/vote_on.png',
+        pagePath: 'pages/vote/vote',
+        text: '去投票'
+      }, {
+        iconPath: './assets/images/user.png',
+        selectedIconPath: './assets/images/user_on.png',
+        pagePath: 'pages/user/user',
+        text: '个人中心'
+      }]
+    },
+    networkTimeout: {
+      request: 15000
     }
   }
 
@@ -43,7 +66,7 @@ class App extends Component {
   render () {
     return (
       <Provider store={store}>
-        <Index />
+        <Home />
       </Provider>
     )
   }

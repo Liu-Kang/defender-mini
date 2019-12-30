@@ -1,46 +1,54 @@
-@import './var.less';
+@import './var.scss';
 
-.bgimg(@path) {
-  background-image: url('@{icons}/@{path}');
+@mixin bgimg($path) {
+  background-image: url('#{$icons}/#{$path}');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
 }
-.full {
+@mixin full {
   width: 100%;
   height: 100%;
 }
-.center {
+@mixin center {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.clickable {
+@mixin clickable {
   transform: scale(1);
   &:active {
     transform: scale(1.02);
   }
 }
-.ellipsis {
+@mixin ellipsis {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.flex-row {
+@mixin flex-row {
   display: flex !important;
   flex-direction: row;
 }
-.flex-col {
+@mixin flex-col {
   display: flex !important;
   flex-direction: column;
 }
-.flex1 {
+@mixin flex1 {
   flex: 1;
   flex-basis: 0;
 }
-.clearfix:after {
-  display: table;
-  content: '';
-  clear: both;
+@mixin clearfix {
+  &:after {
+    display: table;
+    content: '';
+    clear: both;
+  }
+}
+@mixin fl {
+  float: left;
+}
+@mixin fr {
+  float: right;
 }

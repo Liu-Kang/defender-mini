@@ -1,0 +1,77 @@
+@import '@styles/var.scss';
+@import '@styles/mixin.scss';
+
+.container {
+  .content {
+    width: 688px;
+    margin: 0 auto;
+  }
+  .at-tabs__header {
+    background-color: #FFFCF2;
+  }
+  .comp-list {
+    width: 100%;
+    padding: 40px 0;
+    .comp-item {
+      width: 100%;
+      height: 180px;
+      background-color: #fff;
+      box-shadow: -2px 1px 16px 0px rgba(0, 0, 0, 0.1);
+      border-radius: 30px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      padding-right: 24px;
+      position: relative;
+      margin-bottom: 44px;
+      .logo {
+        width: 180px;
+        height: 180px;
+        margin-right: 20px;
+        overflow: hidden;
+        flex-shrink: 0;
+        position: relative;
+        .vote {
+          position: absolute;
+          left: 0;
+          top: 0;
+          @include full;
+          @include center;
+          background-color: rgba($color: #000000, $alpha: .5);
+          color: #FFF;
+          font-size: 48px;
+          font-weight: bold;
+        }
+        Image {
+          @include full;
+        }
+      }
+      .info {
+        .name {
+          font-weight: bold;
+          font-size: 30px;
+          margin-bottom: 16px;
+        }
+        .address {
+          font-size: 24px;
+          margin-bottom: 12px;
+        }
+        .industry {
+          font-size: 24px;
+          color: $font4;
+        }
+      }
+      .handle {
+        position: absolute;
+        bottom: 24px;
+        right: 24px;
+        padding: 10px 30px;
+        background-color: $theme;
+        color: #fff;
+        font-size: 24px;
+        border-radius: 40px;
+        @include clickable;
+      }
+    }
+  }
+}

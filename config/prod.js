@@ -1,6 +1,7 @@
 module.exports = {
   env: {
-    NODE_ENV: '"production"'
+    NODE_ENV: '"production"',
+    DOMAIN: '"http://172.16.14.64:8080"'
   },
   defineConstants: {
   },

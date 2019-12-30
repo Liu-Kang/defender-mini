@@ -1,0 +1,1 @@
+export const CACHE_LOGIN_CODE = 'CACHE_LOGIN_CODE'
