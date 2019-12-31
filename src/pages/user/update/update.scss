@@ -1,0 +1,48 @@
+@import '@styles/var.scss';
+@import '@styles/mixin.scss';
+
+.container {
+  .content {
+    padding: 0 30px;
+  }
+  .info-list {
+    margin-top: 32px;
+    .info-item {
+      height: 112px;
+      line-height: 48px;
+      display: flex;
+      align-items: center;
+      .item-text {
+        font-size: 32px;
+      }
+      .item-value {
+        flex: 1;
+        color: $font2;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        View, Text {
+          font-size: 30px;
+        }
+      }
+      .avatar {
+        width: 88px;
+        height: 88px;
+        border-radius: 50%;
+      }
+      .icondd_arrow {
+        width: 46px;
+        height: 46px;
+        line-height: 46px;
+        padding-left: 4px;
+        text-align: center;
+        border-radius: 50%;
+        background-color: #F5F1E4;
+        color: #ADABA1;
+        font-size: 22px;
+        margin-left: 32px;
+      }
+    }
+  }
+}
