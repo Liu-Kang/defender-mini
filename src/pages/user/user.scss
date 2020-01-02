@@ -37,6 +37,20 @@
         @include flex-col;
         justify-content: center;
         margin-left: 30px;
+        position: relative;
+        .auth-btn {
+          position: absolute;
+          z-index: 9;
+          opacity: 0;
+        }
+        .login-btn {
+          transform: scale(1);
+        }
+        &:active {
+          .login-btn {
+            transform: scale(1.02);
+          }
+        }
       }
       .user-name {
         font-size: 32px;

@@ -2,6 +2,7 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
 import BackHeader from '@components/common/back-header'
 import { AtList, AtListItem, AtButton } from 'taro-ui'
+import { checkAuthorize } from '@utils'
 import '@styles/theme.scss'
 import './user.scss'
 
@@ -13,31 +14,43 @@ export default class User extends Component {
     navigationBarBackgroundColor: '#73BFFF',
   }
   state = {
+    isAuthed: false,
+    showRegist: false,
+    defaultAvatar: 'http://img.zcool.cn/community/01460b57e4a6fa0000012e7ed75e83.png@1280w_1l_2o_100sh.png',
+    userInfo: {},
   }
   componentDidMount () {
+    // checkAuthorize('scope.userInfo').then((bool) => {
+    //   if (bool) {
+    //     Taro.getUserInfo().then((res) => {
+    //       this.setUserInfo(res.userInfo)
+    //     })
+    //   }
+    // })
   }
-  onReachBottom() {}
+  onAuthCallback = (res) => {
+    Taro.navigateTo({
+      url: '/pages/user/update/update',
+    })
+    // this.setUserInfo(res.detail.userInfo)
+  }
+  setUserInfo = (userInfo) => {
+    this.setState({
+      isAuthed: true,
+      userInfo,
+    })
+  }
   render () {
+    const { userInfo, defaultAvatar } = this.state
     return (
       <View className="container">
         <BackHeader></BackHeader>
         <View className="body">
           <View className="user-info">
             <View className="avatar">
-              <Image src="http://n.sinaimg.cn/sinacn14/409/w640h569/20180821/6d8a-hhzsnea2320821.jpg"></Image>
+              <Image src={userInfo.avatarUrl || defaultAvatar}></Image>
             </View>
-            {/* <View className="info">
-              <View className="user-name">捍卫者</View>
-              <View className="user-job">Java开发工程师</View>
-            </View> */}
-            <View className="login">
-              <AtButton
-                circle
-                type="primary"
-                size="small"
-                open-type="getPhoneNumber"
-              >点击登录</AtButton>
-            </View>
+            {this.renderUserInfo()}
           </View>
           <View className="user-line">
             <AtList hasBorder={false}>
@@ -49,5 +62,29 @@ export default class User extends Component {
         </View>
       </View>
     )
+  }
+  renderUserInfo = () => {
+    const { userInfo, isAuthed } = this.state
+    let view
+    if (isAuthed) {
+      view =
+        <View className="info">
+          <View className="user-name">{userInfo.nickName}</View>
+          <View className="user-job">Java开发工程师</View>
+        </View>
+    } else {
+      view =
+        <View className="login">
+          <Button className="auth-btn" open-type="getUserInfo" onGetuserinfo={this.onAuthCallback}>点击登录</Button>
+          <AtButton
+            circle
+            className="login-btn"
+            type="primary"
+            size="small"
+            onClick={this.handleLogin}
+          >点击登录</AtButton>
+        </View>
+    }
+    return view
   }
 }

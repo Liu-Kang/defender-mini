@@ -17,8 +17,9 @@ class App extends Component {
 
   config = {
     pages: [
-      'pages/user/user',
       'pages/home/home',
+      'pages/user/user',
+      'pages/user/update/update',
       'pages/vote/vote',
     ],
     window: {

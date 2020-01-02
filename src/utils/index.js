@@ -7,6 +7,7 @@ import { CACHE_LOGIN_CODE } from '@enums/storage'
 export function doLogin() {
   return new Promise((resolve, reject) => {
     Taro.login().then((loginRes) => {
+      resolve(loginRes)
       // return http({
       //   url: apiCommon.API_LOGIN,
       //   data: {
@@ -18,6 +19,18 @@ export function doLogin() {
       // })
     }).catch((err) => {
       reject(err)
+    })
+  })
+}
+
+export function checkAuthorize(type) {
+  return new Promise((resolve) => {
+    Taro.getSetting().then((res) => {
+      if (!res.authSetting[type]) {
+        resolve(false)
+      } else {
+        resolve(true)
+      }
     })
   })
 }
