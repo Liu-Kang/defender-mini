@@ -1,19 +1,30 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Image } from '@tarojs/components'
-import BackHeader from '@components/common/back-header'
-import { AtModal, AtModalHeader, AtModalContent, AtModalAction } from 'taro-ui'
+import { View, Image, Input } from '@tarojs/components'
+import {
+  AtModal,
+  AtModalHeader,
+  AtModalContent,
+  AtModalAction,
+} from 'taro-ui'
 import { checkAuthorize } from '@utils'
+import UpdateJob from '@components/business/user/update-job'
+import UpdateName from '@components/business/user/update-name'
+
 import '@styles/theme.scss'
-import './login.scss'
+import './update.scss'
 
 
 export default class Update extends Component {
+  static options = {
+    addGlobalClass: true,
+  }
   config = {
     navigationBarTitleText: '用户信息',
     navigationBarBackgroundColor: '#FFFCF2',
   }
   state = {
-    isOpened: false,
+    openUpdateName: false,
+    openUpdateJob: false,
     userInfo: {},
   }
   componentDidMount () {
@@ -41,37 +52,55 @@ export default class Update extends Component {
   }
   handleGoUpdateName = () => {
     this.setState({
-      isOpened: true,
+      openUpdateName: true,
     })
   }
   changeNameCancel = () => {
     this.setState({
-      isOpened: false,
+      openUpdateName: false,
     })
   }
-  changeNameConfirm = () => {
-    
+  changeNameConfirm = (name) => {
+    if (name) {
+      this.setState({
+        openUpdateName: false,
+      })
+    }
+  }
+  handleGoUpdateJob = () => {
+    this.setState({
+      openUpdateJob: true,
+    })
+  }
+  changeJobCancel = () => {
+    this.setState({
+      openUpdateJob: false,
+    })
+  }
+  changeJobConfirm = (job) => {
+    if (job) {
+      this.setState({
+        openUpdateJob: false,
+      })
+    }
   }
   render () {
-    const { userInfo } = this.state
+    const { userInfo, openUpdateJob, openUpdateName } = this.state
     return (
       <View className="container">
-        <AtModal
-          closeOnClickOverlay={false}
-          isOpened
+        <UpdateJob
+          isOpened={openUpdateJob}
+          job={userInfo.job}
+          onCancel={this.changeJobCancel}
+          onConfirm={this.changeJobConfirm}
+        ></UpdateJob>
+        <UpdateName
+          isOpened={openUpdateName}
+          name={userInfo.nickName}
           onCancel={this.changeNameCancel}
           onConfirm={this.changeNameConfirm}
         >
-          <AtModalContent>
-            这里是正文内容，欢迎加入京东凹凸实验室
-            这里是正文内容，欢迎加入京东凹凸实验室
-            这里是正文内容，欢迎加入京东凹凸实验室
-          </AtModalContent>
-          <AtModalAction>
-            <Button>取消</Button>
-            <Button>确定</Button>
-          </AtModalAction>
-        </AtModal>
+        </UpdateName>
         <View className="content">
           <View className="info-list">
             <View className="info-item" onClick={this.handleChangeAvatar}>
@@ -85,6 +114,13 @@ export default class Update extends Component {
               <View className="item-value">
                 <View className="item-text">用户昵称</View>
                 <View>{userInfo.nickName}</View>
+              </View>
+              <View className="iconfont icondd_arrow"></View>
+            </View>
+            <View className="info-item" onClick={this.handleGoUpdateJob}>
+              <View className="item-value">
+                <View className="item-text">您的职业</View>
+                <View>{userInfo.job || '请填写'}</View>
               </View>
               <View className="iconfont icondd_arrow"></View>
             </View>

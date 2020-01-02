@@ -64,12 +64,12 @@ export default class User extends Component {
     )
   }
   renderUserInfo = () => {
-    const { nickName } = this.state.userInfo
+    const { userInfo, isAuthed } = this.state
     let view
-    if (this.state.isAuthed) {
+    if (isAuthed) {
       view =
         <View className="info">
-          <View className="user-name">{nickName}</View>
+          <View className="user-name">{userInfo.nickName}</View>
           <View className="user-job">Java开发工程师</View>
         </View>
     } else {
