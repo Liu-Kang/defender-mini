@@ -31,23 +31,14 @@
         overflow: hidden;
         flex-shrink: 0;
         position: relative;
-        .vote {
-          position: absolute;
-          left: 0;
-          top: 0;
-          @include full;
-          @include center;
-          background-color: rgba($color: #000000, $alpha: .5);
-          color: #FFF;
-          font-size: 48px;
-          font-weight: bold;
-        }
         Image {
           @include full;
         }
       }
       .info {
         .name {
+          width: 320px;
+          @include ellipsis;
           font-weight: bold;
           font-size: 30px;
           margin-bottom: 16px;
@@ -61,11 +52,22 @@
           color: $font4;
         }
       }
-      .handle {
-        position: absolute;
-        bottom: 24px;
-        right: 24px;
-        padding: 10px 30px;
+      .comp-vote {
+        width: 150px;
+        height: 100%;
+        display: flex;
+        @include center;
+      }
+      .vote-num {
+        font-size: 48px;
+        font-weight: bold;
+      }
+      .vote-btn {
+        padding: 0 24px;
+        margin-top: 24px;
+        height: 44px;
+        line-height: 44px;
+        text-align: center;
         background-color: $theme;
         color: #fff;
         font-size: 24px;

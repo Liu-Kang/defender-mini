@@ -1,11 +1,6 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Image, Input } from '@tarojs/components'
-import {
-  AtModal,
-  AtModalHeader,
-  AtModalContent,
-  AtModalAction,
-} from 'taro-ui'
+import { AtButton } from 'taro-ui'
 import { checkAuthorize } from '@utils'
 import UpdateJob from '@components/business/user/update-job'
 import UpdateName from '@components/business/user/update-name'
@@ -125,6 +120,7 @@ export default class Update extends Component {
               <View className="iconfont icondd_arrow"></View>
             </View>
           </View>
+          <AtButton type="primary" className="mt40" circle>确认登录</AtButton>
         </View>
       </View>
     )

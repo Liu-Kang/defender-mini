@@ -47,7 +47,7 @@ export default class UpdateJob extends Component {
         closeOnClickOverlay={false}
         isOpened={this.props.isOpened}
       >
-        <AtModalHeader>请输入您的职业</AtModalHeader>
+        <AtModalHeader>请输入新的昵称</AtModalHeader>
         <AtModalContent>
           <Input
             className="input"

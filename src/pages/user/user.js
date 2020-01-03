@@ -2,7 +2,6 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
 import BackHeader from '@components/common/back-header'
 import { AtList, AtListItem, AtButton } from 'taro-ui'
-import { checkAuthorize } from '@utils'
 import '@styles/theme.scss'
 import './user.scss'
 
@@ -19,7 +18,7 @@ export default class User extends Component {
     defaultAvatar: 'http://img.zcool.cn/community/01460b57e4a6fa0000012e7ed75e83.png@1280w_1l_2o_100sh.png',
     userInfo: {},
   }
-  componentDidMount () {
+  componentDidShow () {
     // checkAuthorize('scope.userInfo').then((bool) => {
     //   if (bool) {
     //     Taro.getUserInfo().then((res) => {
@@ -32,7 +31,6 @@ export default class User extends Component {
     Taro.navigateTo({
       url: '/pages/user/update/update',
     })
-    // this.setUserInfo(res.detail.userInfo)
   }
   setUserInfo = (userInfo) => {
     this.setState({

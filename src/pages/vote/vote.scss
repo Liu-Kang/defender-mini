@@ -1,0 +1,12 @@
+@import '@styles/var.scss';
+@import '@styles/mixin.scss';
+
+.container {
+  .content {
+    width: 688px;
+    margin: 0 auto;
+  }
+  .at-search-bar {
+    background-color: $bg;
+  }
+}
