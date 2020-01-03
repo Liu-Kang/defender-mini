@@ -17,10 +17,10 @@ class App extends Component {
 
   config = {
     pages: [
+      'pages/vote/vote',
       'pages/home/home',
       'pages/user/user',
       'pages/user/update/update',
-      'pages/vote/vote',
     ],
     window: {
       backgroundTextStyle: 'light',

@@ -5,8 +5,94 @@
   .content {
     width: 688px;
     margin: 0 auto;
+    padding-top: 54px;
   }
   .at-search-bar {
     background-color: $bg;
+  }
+  .add-company {
+    position: fixed;
+    right: 32px;
+    bottom: 30px;
+  }
+  .vote-item {
+    width: 100%;
+    background-color: #fff;
+    box-shadow: -2px 1px 16px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 44px;
+    .vote-body {
+      height: 240px;
+      display: flex;
+    }
+    .logo {
+      width: 240px;
+      height: 240px;
+      overflow: hidden;
+      flex-shrink: 0;
+      position: relative;
+      Image {
+        @include full;
+      }
+    }
+    .info {
+      flex: 1;
+      display: flex;
+      height: 100%;
+      padding: 20px;
+      flex-direction: column;
+      justify-content: space-around;
+      .name {
+        width: 400px;
+        @include ellipsis;
+        font-weight: bold;
+        font-size: 30px;
+        margin-bottom: 16px;
+      }
+      .address {
+        font-size: 24px;
+        margin-bottom: 12px;
+      }
+      .industry {
+        font-size: 24px;
+        color: $font4;
+      }
+    }
+    .vote-area {
+      height: 180px;
+      display: flex;
+      padding: 24px;
+      background-color: #F7F7F7;
+    }
+    .type-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .circle-btn {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      padding: 0 24px;
+      margin-top: 24px;
+      text-align: center;
+      background: linear-gradient(-90deg,#ff9800,#f2c584);
+      color: #fff;
+      font-size: 24px;
+      @include clickable;
+    }
+  }
+  .search-empty {
+    height: 800px;
+    color: $font3;
+    @include center;
+    .empty-img {
+      width: 350px;
+      height: 350px;
+      @include bgimg('empty.png');
+    }
   }
 }
