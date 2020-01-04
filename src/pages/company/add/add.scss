@@ -1,0 +1,23 @@
+@import '@styles/var.scss';
+@import '@styles/mixin.scss';
+
+page {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #fff;
+}
+.container {
+  background-color: #fff;
+  .content {
+    padding: 0 30px;
+  }
+  .form-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+  }
+  .at-button {
+    width: 60px;
+  }
+}

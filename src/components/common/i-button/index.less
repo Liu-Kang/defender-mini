@@ -1,0 +1,27 @@
+@import '@styles/var.scss';
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0;
+  font-weight: 500;
+  transform: scale(1);
+  &.round {
+    border-radius: 100px;
+  }
+  &.primary {
+    background-color: $theme;
+    color: #FFF;
+  }
+  &.default {
+    background-color: #c3c2c1;
+    color: $font3;
+  }
+  &:active {
+    transform: scale(1.02);
+  }
+  &.disabled {
+    opacity: .6;
+  }
+}

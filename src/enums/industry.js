@@ -1,0 +1,128 @@
+export default [
+  {
+    pid: 1,
+    label: '计算机/互联网/通信/电子',
+    children: [
+      { id: 1, label: '计算机软件' },
+      { id: 2, label: '计算机硬件' },
+      { id: 3, label: '计算机服务(系统、数据服务、维修)' },
+      { id: 4, label: '通信/电信/网络设备' },
+      { id: 5, label: '通信/电信运营、增值服务' },
+      { id: 6, label: '互联网/电子商务' },
+      { id: 7, label: '网络游戏' },
+      { id: 8, label: '电子技术/半导体/集成电路' },
+      { id: 9, label: '仪器仪表/工业自动化' },
+    ],
+  },
+  {
+    pid: 2,
+    label: '会计/金融/银行/保险',
+    children: [
+      { id: 10, label: '会计/审计' },
+      { id: 11, label: '金融/投资/证券' },
+      { id: 12, label: '银行' },
+      { id: 13, label: '保险' },
+      { id: 14, label: '信托/担保/拍卖/典当' },
+    ],
+  },
+  {
+    pid: 3,
+    label: '贸易/消费/制造/营运',
+    children: [
+      { id: 15, label: '贸易/进出口' },
+      { id: 16, label: '批发/零售' },
+      { id: 17, label: '快速消费品(食品、饮料、化妆品)' },
+      { id: 18, label: '服装/纺织/皮革' },
+      { id: 19, label: '家具/家电/玩具/礼品' },
+      { id: 20, label: '奢侈品/收藏品/工艺品/珠宝' },
+      { id: 21, label: '办公用品及设备' },
+      { id: 22, label: '机械/设备/重工' },
+      { id: 23, label: '汽车及零配件' },
+    ],
+  },
+  {
+    pid: 4,
+    label: '制药/医疗',
+    children: [
+      { id: 24, label: '制药/生物工程' },
+      { id: 25, label: '医疗/护理/卫生' },
+      { id: 26, label: '医疗设备/器械' },
+    ],
+  },
+  {
+    pid: 5,
+    label: '广告/媒体',
+    children: [
+      { id: 27, label: '广告' },
+      { id: 28, label: '公关/市场推广/会展' },
+      { id: 29, label: '影视/媒体/艺术/文化传播' },
+      { id: 30, label: '文字媒体/出版' },
+      { id: 31, label: '印刷/包装/造纸' },
+    ],
+  },
+  {
+    pid: 6,
+    label: '房地产/建筑',
+    children: [
+      { id: 32, label: '房地产' },
+      { id: 33, label: '建筑/建材/工程' },
+      { id: 34, label: '家居/室内设计/装潢' },
+      { id: 35, label: '物业管理/商业中心' },
+    ],
+  },
+  {
+    pid: 7,
+    label: '政府/非营利组织/其他',
+    children: [
+      { id: 36, label: '政府/公共事业' },
+      { id: 37, label: '非营利组织' },
+      { id: 38, label: '环保' },
+      { id: 39, label: '农/林/牧/渔' },
+      { id: 40, label: '多元化业务集团公司' },
+    ],
+  },
+  {
+    pid: 8,
+    label: '能源/原材料',
+    children: [
+      { id: 41, label: '石油/化工/矿产/地质' },
+      { id: 42, label: '采掘业/冶炼' },
+      { id: 43, label: '电气/电力/水利' },
+      { id: 44, label: '新能源' },
+      { id: 45, label: '原材料和加工' },
+    ],
+  },
+  {
+    pid: 9,
+    label: '物流/运输',
+    children: [
+      { id: 46, label: '交通/运输/物流' },
+      { id: 47, label: '航天/航空' },
+    ],
+  },
+  {
+    pid: 10,
+    label: '服务业',
+    children: [
+      { id: 48, label: '餐饮业' },
+      { id: 49, label: '酒店/旅游' },
+      { id: 50, label: '娱乐/休闲/体育' },
+      { id: 51, label: '美容/保健' },
+      { id: 52, label: '生活服务' },
+    ],
+  },
+  {
+    pid: 11,
+    label: '专业服务/教育/培训',
+    children: [
+      { id: 53, label: '中介服务' },
+      { id: 54, label: '专业服务(咨询、人力资源、财会)' },
+      { id: 55, label: '外包服务' },
+      { id: 56, label: '检测，认证' },
+      { id: 57, label: '法律' },
+      { id: 58, label: '教育/培训/院校' },
+      { id: 59, label: '学术/科研' },
+      { id: 60, label: '租赁服务' },
+    ],
+  },
+]

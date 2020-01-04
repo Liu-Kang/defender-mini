@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Image, Input } from '@tarojs/components'
+import { View, Image } from '@tarojs/components'
 import { AtButton } from 'taro-ui'
 import { checkAuthorize } from '@utils'
 import UpdateJob from '@components/business/user/update-job'
