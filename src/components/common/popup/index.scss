@@ -1,0 +1,34 @@
+.popup {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+}
+.popup-mask {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: .3;
+}
+.popup-main {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+  z-index: 1002;
+  transform: translateY(100%);
+  .popup-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: 80px;
+    line-height: 80px;
+    border-bottom: 1px solid #eee;
+  }
+  .popup-content {
+    min-height: 100px;
+  }
+}

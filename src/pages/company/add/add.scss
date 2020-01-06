@@ -11,6 +11,25 @@ page {
   .content {
     padding: 0 30px;
   }
+  .field {
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    display: flex;
+    border-bottom: 1PX solid #e8e8e8;
+  }
+  .field-name {
+    width: 240px;
+  }
+  .field-value {
+    flex: 1;
+    &.empty {
+      color: #999;
+    }
+    Input {
+      height: 100%;
+    }
+  }
   .form-btn {
     display: flex;
     align-items: center;

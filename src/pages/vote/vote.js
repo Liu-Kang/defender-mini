@@ -34,7 +34,9 @@ export default class Home extends Component {
     })
   }
   handleAddCompany = () => {
-
+    Taro.navigateTo({
+      url: '/pages/company/add/add',
+    })
   }
   handleVote = () => {
 
