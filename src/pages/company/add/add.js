@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Input } from '@tarojs/components'
+import { View, Input, Image, Textarea } from '@tarojs/components'
 import { AtButton } from 'taro-ui'
 import industries from '@enums/industry'
 
@@ -20,6 +20,8 @@ export default class Update extends Component {
       logo: '',
       name: '',
       industry: {},
+      address: '',
+      intro: '',
     },
     industryColumn: [],
   }
@@ -75,6 +77,36 @@ export default class Update extends Component {
       }
     }))
   }
+  handleChooseLocation = () => {
+    Taro.chooseLocation().then((res) => {
+      this.setState((prevState) => ({
+        info: {
+          ...prevState.info,
+          address: res.address,
+        }
+      }))
+    })
+  }
+  handleChooseLogo = () => {
+    Taro.chooseImage({
+      count: 1,
+    }).then((res) => {
+      this.setState((prevState) => ({
+        info: {
+          ...prevState.info,
+          logo: res.tempFilePaths[0],
+        }
+      }))
+    })
+  }
+  handleChangeIntro = (event) => {
+    this.setState((prevState) => ({
+      info: {
+        ...prevState.info,
+        intro: event.detail.value,
+      }
+    }))
+  }
   handleSubmit = () => {
 
   }
@@ -88,6 +120,7 @@ export default class Update extends Component {
               <View className="field-name">公司名称</View>
               <View className="field-value">
                 <Input
+                  className="name-input"
                   border={false}
                   type="text"
                   placeholder="请输入公司名称"
@@ -109,6 +142,33 @@ export default class Update extends Component {
                 >
                   {info.industry.label || '请选择'}
                 </Picker>
+              </View>
+            </View>
+            <View className="field" onClick={this.handleChooseLocation}>
+              <View className="field-name">公司地址</View>
+              <View className="field-value">
+                <View className="address">
+                  {info.address || '选择地址'}
+                </View>
+              </View>
+            </View>
+            <View className="field" onClick={this.handleChooseLogo}>
+              <View className="field-name">公司logo</View>
+              <View className="field-value">
+                <Image className="logo" mode="aspectFill" src={info.logo}></Image>
+              </View>
+            </View>
+            <View className="field big-field">
+              <View className="field-name">公司简介</View>
+              <View className="field-value">
+                <Textarea
+                  className="intro-input"
+                  border={false}
+                  placeholder="请输入公司简介"
+                  placeholderStyle="color: #999;"
+                  value={info.intro}
+                  onInput={this.handleChangeIntro}
+                ></Textarea>
               </View>
             </View>
           </View>
