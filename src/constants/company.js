@@ -1,0 +1,3 @@
+export const ADD_COMPANY = 'ADD_COMPANY'
+export const GET_COMPANY_DETAIL = 'GET_COMPANY_DETAIL'
+export const VOTE_COMPANY = 'VOTE_COMPANY'
