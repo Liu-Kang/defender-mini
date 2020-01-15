@@ -1,7 +1,7 @@
 module.exports = {
   env: {
     NODE_ENV: '"development"',
-    DOMAIN: '"https://daidai-api-test1.yunkezan.com"'
+    DOMAIN: '"http://127.0.0.1:7001"'
   },
   defineConstants: {
   },

@@ -1,7 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
-import { connect } from '@tarojs/redux'
-import * as actions from '@actions/home'
 import { AtTabs, AtTabsPane } from 'taro-ui'
 import { doLogin } from '@utils'
 import types from '@enums/bad-types'
@@ -10,7 +8,6 @@ import '@styles/theme.scss'
 import './home.scss'
 
 
-@connect(state => state.home, { ...actions })
 export default class Home extends Component {
   static options = {
     addGlobalClass: true,

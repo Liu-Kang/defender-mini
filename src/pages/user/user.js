@@ -2,6 +2,7 @@ import Taro, { Component } from '@tarojs/taro'
 import { View, Image } from '@tarojs/components'
 import BackHeader from '@components/common/back-header'
 import { AtList, AtListItem, AtButton } from 'taro-ui'
+import { checkAuthorize } from '@utils'
 import '@styles/theme.scss'
 import './user.scss'
 
@@ -19,13 +20,13 @@ export default class User extends Component {
     userInfo: {},
   }
   componentDidShow () {
-    // checkAuthorize('scope.userInfo').then((bool) => {
-    //   if (bool) {
-    //     Taro.getUserInfo().then((res) => {
-    //       this.setUserInfo(res.userInfo)
-    //     })
-    //   }
-    // })
+    checkAuthorize('scope.userInfo').then((bool) => {
+      if (bool) {
+        Taro.getUserInfo().then((res) => {
+          this.setUserInfo(res.userInfo)
+        })
+      }
+    })
   }
   onAuthCallback = (res) => {
     Taro.navigateTo({
@@ -37,6 +38,9 @@ export default class User extends Component {
       isAuthed: true,
       userInfo,
     })
+  }
+  handleLogin = () => {
+
   }
   render () {
     const { userInfo, defaultAvatar } = this.state
